@@ -7,8 +7,8 @@ node {
     }
 
     stage('Build Docker Image') {
+        //path to DockerHub repo:
         app = docker.build("mb2love/app")
-       //app = docker.build("maximbar/docker")
        //sh 'docker build -t maximbar/docker:latest'
     }
 
@@ -19,7 +19,7 @@ node {
         }     
     
     stage('Push Docker Image'){
-    
+        // create secrets DOCKER_HUB_USER and DOCKER_HUB_PASSWORD in GitHub
         withCredentials([usernamePassword(credentialsId: 'dockerhub_id', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USER')]) {   
             sh 'docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD'
         }
