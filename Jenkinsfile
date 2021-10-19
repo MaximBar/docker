@@ -8,8 +8,8 @@ node {
 
     stage('Build Docker Image') {
   
-       app = docker.build("MaximBar/docker")
-       //sh 'docker build -t MaximBar/docker:latest'
+       app = docker.build("maximbar/docker")
+       //sh 'docker build -t maximbar/docker:latest'
     }
 
     stage('Test image') {                      
