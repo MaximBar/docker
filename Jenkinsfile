@@ -20,7 +20,7 @@ node {
     
     stage('Push Docker Image'){
     
-        withCredentials([usernamePassword(credentialsId: 'mb2love', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USER')]) {   
+        withCredentials([usernamePassword(credentialsId: 'dockerhub_id', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USER')]) {   
             sh 'docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD'
         }
          //sh "docker push MaximBar/docker:latest"
