@@ -9,7 +9,7 @@ node {
     stage('Build Docker Image') {
         //path to DockerHub repo:
         app = docker.build("mb2love/app")
-       //sh 'docker build -t maximbar/docker:latest'
+       //sh 'docker build -t mb2love/docker:latest'
     }
 
     stage('Test image') {                      
@@ -23,7 +23,7 @@ node {
         withCredentials([usernamePassword(credentialsId: 'dockerhub_id', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USER')]) {   
             sh 'docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD'
         }
-         //sh "docker push maximbar/docker:latest"
+         //sh "docker push mb2love/docker:latest"
          app.push("${env.BUILD_NUMBER}")            
      }
 }
