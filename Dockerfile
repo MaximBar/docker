@@ -3,5 +3,4 @@ FROM ubuntu:20.04
 WORKDIR /app
 RUN apt-get update && apt-get install -y python
 COPY ["app.py", "."]
-ENTRYPOINT ["app.py"]
-CMD ["python3"]
+ENTRYPOINT ["python3", "app.py"]
