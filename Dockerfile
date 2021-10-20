@@ -4,3 +4,4 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y python
 COPY ["app.py", "."]
 CMD ["python", "app.py"]
+# ENTRYPOINT ["python", "app.py"]
